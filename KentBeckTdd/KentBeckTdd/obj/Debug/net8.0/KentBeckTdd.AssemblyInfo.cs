@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KentBeckTdd")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+85e080f77480eb6ddf7cdc9d02fce31983dd8979")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+31dbaedf06b7bf713bd6cc75d8c2e8cdb675e1ff")]
 [assembly: System.Reflection.AssemblyProductAttribute("KentBeckTdd")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KentBeckTdd")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

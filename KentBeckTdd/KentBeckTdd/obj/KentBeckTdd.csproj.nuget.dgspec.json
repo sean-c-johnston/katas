@@ -11,7 +11,7 @@
         "projectName": "KentBeckTdd",
         "projectPath": "/Users/sean/git/personal/katas/KentBeckTdd/KentBeckTdd/KentBeckTdd.csproj",
         "packagesPath": "/Users/sean/.nuget/packages/",
-        "outputPath": "/Users/sean/git/personal/Katas/KentBeckTdd/KentBeckTdd/obj/",
+        "outputPath": "/Users/sean/git/personal/katas/KentBeckTdd/KentBeckTdd/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/sean/.nuget/NuGet/NuGet.Config"
@@ -38,6 +38,16 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[7.0.0-alpha.4, )"
+            },
+            "FluentAssertions.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[0.32.0, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.8.0, )"
