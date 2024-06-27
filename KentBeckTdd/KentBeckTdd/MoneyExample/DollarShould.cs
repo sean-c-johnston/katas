@@ -34,18 +34,21 @@ public class PoundsShould
     [Fact]
     public void MultiplyCorrectly()
     {
-        var fivePounds = new Pounds(5);
-        fivePounds.Times(2).Should().Be(new Pounds(10));
-        fivePounds.Times(3).Should().Be(new Pounds(15));
+        var fivePounds = new Pound(5);
+        fivePounds.Times(2).Should().Be(new Pound(10));
+        fivePounds.Times(3).Should().Be(new Pound(15));
     }
 
     [Fact]
-    public void TestEquality()
+    public void CompareToItself()
     {
-        new Pounds(5).Should().Be(new Pounds(5));
-        new Pounds(5).Should().NotBe(new Pounds(10));
-        
-        new Pounds(5).Should().Be(new Dollar(5));
-        new Pounds(5).Should().NotBe(new Dollar(10));
+        new Pound(5).Should().Be(new Pound(5));
+        new Pound(5).Should().NotBe(new Pound(10));
+    }
+
+    [Fact]
+    public void CompareToDollars()
+    {
+        new Pound(5).Should().NotBe(new Dollar(5));
     }
 }

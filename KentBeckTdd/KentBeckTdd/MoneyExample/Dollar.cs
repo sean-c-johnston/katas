@@ -13,6 +13,7 @@ public abstract class Money
     {
         if (ReferenceEquals(null, obj)) return false;
         if (ReferenceEquals(this, obj)) return true;
+        if (obj.GetType() != this.GetType()) return false;
         return Equals((Money)obj);
     }
 
@@ -32,12 +33,12 @@ public class Dollar : Money
     public Dollar Times(int multiplier) => new(Amount * multiplier);
 }
 
-public class Pounds : Money
+public class Pound : Money
 {
-    public Pounds(int amount)
+    public Pound(int amount)
     {
         Amount = amount;
     }
 
-    public Pounds Times(int multiplier) => new(Amount * multiplier);
+    public Pound Times(int multiplier) => new(Amount * multiplier);
 }
