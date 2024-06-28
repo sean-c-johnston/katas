@@ -3,7 +3,13 @@ namespace KentBeckTdd.MoneyExample;
 public abstract class Money
 {
     protected int Amount;
+    public string Currency { get; set; }
 
+    public static Money Dollars(int amount) => new Dollar(amount);
+    public static Money Pounds(int amount) => new Pound(amount);
+    
+    public abstract Money Times(int multiplier);
+    
     private bool Equals(Money other)
     {
         return Amount == other.Amount;
@@ -28,9 +34,10 @@ public class Dollar : Money
     public Dollar(int amount)
     {
         Amount = amount;
+        Currency = "USD";
     }
 
-    public Money Times(int multiplier) => new Dollar(Amount * multiplier);
+    public override Money Times(int multiplier) => new Dollar(Amount * multiplier);
 }
 
 public class Pound : Money
@@ -38,7 +45,8 @@ public class Pound : Money
     public Pound(int amount)
     {
         Amount = amount;
+        Currency = "GBP";
     }
 
-    public Money Times(int multiplier) => new Pound(Amount * multiplier);
+    public override Money Times(int multiplier) => new Pound(Amount * multiplier);
 }
