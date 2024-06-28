@@ -19,7 +19,7 @@ public abstract class Money
     {
         if (ReferenceEquals(null, obj)) return false;
         if (ReferenceEquals(this, obj)) return true;
-        if (obj.GetType() != this.GetType()) return false;
+        if (obj.GetType() != GetType()) return false;
         return Equals((Money)obj);
     }
 
@@ -37,7 +37,7 @@ public class Dollar : Money
         Currency = currency;
     }
 
-    public override Money Times(int multiplier) => new Dollar(Amount * multiplier, Currency!);
+    public override Money Times(int multiplier) => Dollars(Amount * multiplier);
 }
 
 public class Pound : Money
@@ -48,5 +48,5 @@ public class Pound : Money
         Currency = currency;
     }
 
-    public override Money Times(int multiplier) => new Pound(Amount * multiplier, Currency!);
+    public override Money Times(int multiplier) => Pounds(Amount * multiplier);
 }
