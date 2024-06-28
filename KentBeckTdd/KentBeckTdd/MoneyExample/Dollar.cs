@@ -3,6 +3,13 @@ namespace KentBeckTdd.MoneyExample;
 public abstract class Money
 {
     protected int Amount;
+
+    public Money(int amount, string currency)
+    {
+        Amount = amount;
+        Currency = currency;
+    }
+    
     public string? Currency { get; set; }
 
     public static Money Dollars(int amount) => new Dollar(amount, "USD");
@@ -31,10 +38,8 @@ public abstract class Money
 
 public class Dollar : Money
 {
-    public Dollar(int amount, string currency)
+    public Dollar(int amount, string currency) : base(amount, currency)
     {
-        Amount = amount;
-        Currency = currency;
     }
 
     public override Money Times(int multiplier) => Dollars(Amount * multiplier);
@@ -42,11 +47,9 @@ public class Dollar : Money
 
 public class Pound : Money
 {
-    public Pound(int amount, string currency)
+    public Pound(int amount, string currency) : base(amount, currency)
     {
-        Amount = amount;
-        Currency = currency;
     }
-
+    
     public override Money Times(int multiplier) => Pounds(Amount * multiplier);
 }
