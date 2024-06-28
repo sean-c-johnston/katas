@@ -17,7 +17,7 @@ public class Money
     
     public string? Currency { get; set; }
 
-    public Money Times(int multiplier) => null!;
+    public Money Times(int multiplier) => new Money(Amount * multiplier, Currency!);
 
     private bool Equals(Money other)
     {
@@ -36,22 +36,4 @@ public class Money
     {
         return Amount;
     }
-}
-
-public class Dollar : Money
-{
-    public Dollar(int amount, string currency) : base(amount, currency)
-    {
-    }
-
-    public Money Times(int multiplier) => new Money(Amount * multiplier, Currency!);
-}
-
-public class Pound : Money
-{
-    public Pound(int amount, string currency) : base(amount, currency)
-    {
-    }
-    
-    public Money Times(int multiplier) => new Money(Amount * multiplier, Currency!);
 }
