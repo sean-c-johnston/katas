@@ -9,9 +9,9 @@ public class DollarShould
     // duplication of dollar/pounds
         // common times method
     // duplication of test classes
-    // avoid using classes in equality, prefer to tie it to a domain concern
     
 
+    // // avoid using classes in equality, prefer to tie it to a domain concern
     // // compare pounds to dollars
     // // want to make Amount private
     // // $5 * 2 = $10
@@ -20,22 +20,22 @@ public class DollarShould
     [Fact]
     public void MultiplyCorrectly()
     {
-        var fiveDollars = Money.Dollars(5);
-        fiveDollars.Times(2).Should().Be(Money.Dollars(10));
-        fiveDollars.Times(3).Should().Be(Money.Dollars(15));
+        var fiveDollars = new Dollar(5, "USD");
+        fiveDollars.Times(2).Should().Be(new Dollar(10, "USD"));
+        fiveDollars.Times(3).Should().Be(new Dollar(15, "USD"));
     }
 
     [Fact]
     public void TestEquality()
     {
-        Money.Dollars(5).Should().Be(Money.Dollars(5));
-        Money.Dollars(5).Should().NotBe(Money.Dollars(10));
+        new Dollar(5, "USD").Should().Be(new Dollar(5, "USD"));
+        new Dollar(5, "USD").Should().NotBe(new Dollar(10, "USD"));
     }
 
     [Fact]
     public void HaveACurrency()
     {
-        Money.Dollars(5).Currency.Should().Be("USD");
+        new Dollar(5, "USD").Currency.Should().Be("USD");
     }
 }
 
@@ -44,28 +44,28 @@ public class PoundsShould
     [Fact]
     public void MultiplyCorrectly()
     {
-        var fivePounds = Money.Pounds(5);
-        fivePounds.Times(2).Should().Be(Money.Pounds(10));
-        fivePounds.Times(3).Should().Be(Money.Pounds(15));
+        var fivePounds = new Pound(5, "GBP");
+        fivePounds.Times(2).Should().Be(new Pound(10, "GBP"));
+        fivePounds.Times(3).Should().Be(new Pound(15, "GBP"));
     }
 
     [Fact]
     public void CompareToItself()
     {
-        Money.Pounds(5).Should().Be(Money.Pounds(5));
-        Money.Pounds(5).Should().NotBe(Money.Pounds(10));
+        new Pound(5, "GBP").Should().Be(new Pound(5, "GBP"));
+        new Pound(5, "GBP").Should().NotBe(new Pound(10, "GBP"));
     }
 
     [Fact]
     public void CompareToDollars()
     {
-        Money.Pounds(5).Should().NotBe(Money.Dollars(5));
+        new Pound(5, "GBP").Should().NotBe(new Dollar(5, "USD"));
     }
     
     
     [Fact]
     public void HaveACurrency()
     {
-        Money.Pounds(5).Currency.Should().Be("GBP");
+        new Pound(5, "GBP").Currency.Should().Be("GBP");
     }
 }
