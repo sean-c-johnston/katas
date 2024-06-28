@@ -7,8 +7,11 @@ public class DollarShould
     // $5 + £5 = $15 if rate is 2:1
     // handle fractional money
     // duplication of dollar/pounds
-    // compare pounds to dollars
+        // common times method
+    // avoid using classes in equality, prefer to tie it to a domain concern
+    
 
+    // // compare pounds to dollars
     // // want to make Amount private
     // // $5 * 2 = $10
     // // want to avoid mutating dollar

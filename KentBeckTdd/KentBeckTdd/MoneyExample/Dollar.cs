@@ -30,7 +30,7 @@ public class Dollar : Money
         Amount = amount;
     }
 
-    public Dollar Times(int multiplier) => new(Amount * multiplier);
+    public Money Times(int multiplier) => new Dollar(Amount * multiplier);
 }
 
 public class Pound : Money
@@ -40,5 +40,5 @@ public class Pound : Money
         Amount = amount;
     }
 
-    public Pound Times(int multiplier) => new(Amount * multiplier);
+    public Money Times(int multiplier) => new Pound(Amount * multiplier);
 }
