@@ -5,15 +5,20 @@ namespace KentBeckTdd.MoneyExample;
 public class MoneyShould
 {
     // $5 + £5 = $15 if rate is 2:1
-    // $5 + $5 = $10
     // handle fractional money
 
     [Fact]
-    public void AddCorrectly()
+    public void PerformComplexAddition()
     {
-        var product = new Money(5, "USD").Add(new Money(5, "USD"));
         
-        product.Should().Be(new Money(10, "USD"));
+    }
+    
+    [Fact]
+    public void PerformSimpleAddition()
+    {
+        var product = Money.Dollar(5).Plus(Money.Dollar(5));
+        //todo - more replacement with factories
+        product.Should().Be(Money.Dollar(10));
     }
     
     [Fact]
