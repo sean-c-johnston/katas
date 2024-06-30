@@ -1,27 +1,15 @@
 namespace KentBeckTdd.MoneyExample;
 
-public class Money
+public class Money(int amount, string currency)
 {
-    protected int Amount;
+    private readonly int _amount = amount;
+    public string? Currency { get; } = currency;
 
-    public override string ToString()
-    {
-        return $"{Currency} {Amount}";
-    }
-
-    public Money(int amount, string currency)
-    {
-        Amount = amount;
-        Currency = currency;
-    }
-    
-    public string? Currency { get; set; }
-
-    public Money Times(int multiplier) => new Money(Amount * multiplier, Currency!);
+    public Money Times(int multiplier) => new Money(_amount * multiplier, Currency!);
 
     private bool Equals(Money other)
     {
-        return Amount == other.Amount
+        return _amount == other._amount
             && Currency == other.Currency;
     }
 
@@ -34,6 +22,11 @@ public class Money
 
     public override int GetHashCode()
     {
-        return Amount;
+        return _amount;
+    }
+
+    public override string ToString()
+    {
+        return $"{Currency} {_amount}";
     }
 }
