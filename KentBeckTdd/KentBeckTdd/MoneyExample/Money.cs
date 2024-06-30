@@ -3,9 +3,14 @@ namespace KentBeckTdd.MoneyExample;
 public class Money(int amount, string currency)
 {
     private readonly int _amount = amount;
-    public string? Currency { get; } = currency;
+    public string Currency { get; } = currency;
 
-    public Money Times(int multiplier) => new Money(_amount * multiplier, Currency!);
+    public Money Add(Money money)
+    {
+        return new Money(_amount + money._amount, Currency);
+    }
+
+    public Money Times(int multiplier) => new(_amount * multiplier, Currency);
 
     private bool Equals(Money other)
     {

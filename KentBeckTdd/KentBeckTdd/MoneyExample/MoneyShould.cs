@@ -2,21 +2,20 @@ using FluentAssertions;
 
 namespace KentBeckTdd.MoneyExample;
 
-public class DollarShould
+public class MoneyShould
 {
     // $5 + £5 = $15 if rate is 2:1
+    // $5 + $5 = $10
     // handle fractional money
+
+    [Fact]
+    public void AddCorrectly()
+    {
+        var product = new Money(5, "USD").Add(new Money(5, "USD"));
+        
+        product.Should().Be(new Money(10, "USD"));
+    }
     
-
-    // // duplication of dollar/pounds
-    // // duplication of test classes
-    // // common times method
-    // // avoid using classes in equality, prefer to tie it to a domain concern
-    // // compare pounds to dollars
-    // // want to make Amount private
-    // // $5 * 2 = $10
-    // // want to avoid mutating dollar
-
     [Fact]
     public void MultiplyCorrectly()
     {
