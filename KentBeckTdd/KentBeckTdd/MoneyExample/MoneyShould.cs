@@ -19,6 +19,8 @@ public class MoneyShould
         var product = Money.Dollar(5).Plus(Money.Dollar(5));
         //todo - more replacement with factories
         product.Should().Be(Money.Dollar(10));
+        var product = Money.Dollars(5).Plus(Money.Dollars(5));
+        product.Should().Be(Money.Dollars(10));
     }
     
     [Fact]
