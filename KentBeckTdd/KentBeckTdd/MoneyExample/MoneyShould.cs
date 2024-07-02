@@ -16,9 +16,6 @@ public class MoneyShould
     [Fact]
     public void PerformSimpleAddition()
     {
-        var product = Money.Dollar(5).Plus(Money.Dollar(5));
-        //todo - more replacement with factories
-        product.Should().Be(Money.Dollar(10));
         var product = Money.Dollars(5).Plus(Money.Dollars(5));
         product.Should().Be(Money.Dollars(10));
     }
@@ -26,22 +23,23 @@ public class MoneyShould
     [Fact]
     public void MultiplyCorrectly()
     {
-        var fiveDollars = new Money(5, "USD");
-        fiveDollars.Times(2).Should().Be(new Money(10, "USD"));
-        fiveDollars.Times(3).Should().Be(new Money(15, "USD"));
+        var fiveDollars = Money.Dollars(5);
+        fiveDollars.Times(2).Should().Be(Money.Dollars(10));
+        fiveDollars.Times(3).Should().Be(Money.Dollars(15));
     }
 
     [Fact]
     public void TestEquality()
     {
-        new Money(5, "USD").Should().Be(new Money(5, "USD"));
-        new Money(5, "USD").Should().NotBe(new Money(10, "USD"));
-        new Money(5, "GBP").Should().NotBe(new Money(5, "USD"));
+        Money.Dollars(5).Should().Be(Money.Dollars(5));
+        Money.Dollars(5).Should().NotBe(Money.Dollars(10));
+        Money.Pounds(5).Should().NotBe(Money.Dollars(5));
     }
 
     [Fact]
     public void HaveACurrency()
     {
-        new Money(5, "USD").Currency.Should().Be("USD");
+        Money.Dollars(1).Currency.Should().Be("USD");
+        Money.Pounds(1).Currency.Should().Be("GBP");
     }
 }

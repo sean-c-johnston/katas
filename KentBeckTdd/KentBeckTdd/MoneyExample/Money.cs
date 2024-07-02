@@ -5,8 +5,6 @@ public class Money(int amount, string currency)
     private readonly int _amount = amount;
     public string Currency { get; } = currency;
     
-    public static Money Dollar(int amount) => new(amount, "USD");
-    public static Money Pound(int amount) => new(amount, "GBP");
     public static Money Dollars(int amount) => new(amount, "USD");
     public static Money Pounds(int amount) => new(amount, "GBP");
 
